@@ -1,0 +1,160 @@
+:root {
+  --bg: #0f172a;
+  --muted: #94a3b8;
+  --card: #111827;
+  --text: #e5e7eb;
+  --accent: #22d3ee;
+  --accent-2: #a78bfa;
+  --win: #34d399;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, var(--bg), #0b1024 55%);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+
+.app {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  place-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem 3rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+
+.scoreboard {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.score {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 700;
+}
+
+.score span {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b1024;
+}
+
+
+.board {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+
+.square {
+  width: 92px;
+  height: 92px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text);
+  background: var(--card);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.square:hover {
+  transform: translateY(-2px);
+}
+
+.square.filled {
+  cursor: default;
+  opacity: 0.95;
+}
+
+.square.highlight {
+  border-color: var(--win);
+  box-shadow: 0 0 0 2px var(--win) inset;
+}
+
+
+.status {
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.controls button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b1024;
+  font-weight: 700;
+  padding: 0.65rem 1rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.controls button.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+
+
+@media (min-width: 480px) {
+  .square {
+    width: 108px;
+    height: 108px;
+    font-size: 2.6rem;
+  }
+}
